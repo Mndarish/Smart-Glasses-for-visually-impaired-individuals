@@ -24,4 +24,29 @@ This project presents a cost-effective, AI-powered wearable system designed to a
 | Protocols    | Wi-Fi (Image transfer), Bluetooth (Audio output) |
 
 
+## Standards Used
+
+| Standard                 | Description                                                                 |
+|--------------------------|-----------------------------------------------------------------------------|
+| Wi-Fi 802.11             | Used for transmitting data from the Raspberry Pi Zero 2 W to the cloud server and receiving results back. |
+| CSI                      | Connects the camera module to the Raspberry Pi, enabling high-speed image capture. |
+| USB                      | Used to power the Raspberry Pi.                                             |
+| Bluetooth                | Transmits audio output wirelessly to earphones or speakers.                |
+| Flask + ngrok            | Facilitates cloud communication between Raspberry Pi and remote server using REST APIs. |
+| OpenCV                   | Used for image preprocessing and text recognition from images.             |
+| gTTS, Gemini, TTS        | Provides multilingual text-to-speech conversion, both online and offline.  |
+| Raspberry Pi Zero 2 W    | Serves as the main processing unit of the smart glasses, integrating all hardware and software components. |
+
+
+## Implementation Results
+
+| Module              | Test Scenario                                  | Accuracy / Performance              | Remarks                                      |
+|---------------------|-----------------------------------------------|-------------------------------------|----------------------------------------------|
+| Gesture Control     | Fist, Two-finger, Palm gestures               | ~95% detection accuracy             | MediaPipe, works reliably under good lighting |
+| Object Detection    | Detecting people, obstacles, doors            | ~85–90% accuracy (YOLOv8n)          | ROI + filtering improves relevance            |
+| Text-to-Speech (TTS)| Printed and handwritten text (Eng, Telugu)    | >90% for printed, ~80% for handwritten | gTTS + Gemini performed best               |
+| Currency Detection  | ₹10, ₹20, ₹50, ₹100, ₹500, ₹2000 notes        | 93% average detection accuracy      | Fine-tuned YOLOv8 model used                 |
+| Emotion Detection   | Happy, Sad, Neutral expressions               | ~88% accuracy                       | DeepFace model, effective on faces           |
+| Audio Feedback      | Bluetooth output to earphones                | <1s response time                   | Clear and responsive speech playback         |
+
 
